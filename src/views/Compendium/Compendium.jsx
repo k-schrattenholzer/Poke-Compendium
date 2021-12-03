@@ -8,9 +8,10 @@ export default function Compendium() {
   //initialize state
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
-  const [searchName, setSearchName] = useState('');
-  const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState('All');
+  // const [searchName, setSearchName] = useState('');
+  // const [genres, setGenres] = useState([]);
+  // const [selectedGenre, setSelectedGenre] = useState('All');
+
 
   //need useEffects here
   useEffect(() => {

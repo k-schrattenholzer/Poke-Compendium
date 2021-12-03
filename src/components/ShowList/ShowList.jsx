@@ -1,9 +1,21 @@
-import './ShowList.css';
+// import { ShowsWithImg } from "../../utils/utils.js";
+import Show from "../Show/Show.jsx";
+import "./ShowList.css";
 
-export default function ShowList() {
+export default function ShowList({ shows }) {
+
+  console.log(shows)
+
   return (
-    <div className='Show-List-Container'>
+    <ul aria-label="showList" className="showList-Container">
+      {shows.map(( show ) => {          
+        return (         
+            <li key={show.id}>
+              <Show show={ show } />
+            </li>
+        )
+      })}
       
-    </div>
-  )
+    </ul>
+  );
 }
