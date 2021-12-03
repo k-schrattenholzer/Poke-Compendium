@@ -5,15 +5,13 @@ import "./ShowList.css";
 export default function ShowList({ shows }) {
 
   return (
-    <ul aria-label="showList" className="showList-Container">
-      {shows.map(( show ) => {          
-        return (         
-            <li key={show.id}>
-              <Show show={ show } />
-            </li>
-        )
-      })}
+    <div aria-label="showList" className="showList-Container">
+      {shows.map(
+        (show) => <Show show={ show } />
+
+
+)}
       
-    </ul>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-export function ShowsWithImg(showsArr) {
+export const ShowsWithImg = (showsArr) => {
 
   const filteredArr = showsArr.filter(show => show.image !== null);
 
@@ -6,6 +6,11 @@ export function ShowsWithImg(showsArr) {
 
 }
 
+export const removeTags = (string) => {
+  let str = string.toString();
+
+  return str.replace( /(<([^>]+)>)/ig, '');
+}
 
 export const showMunger = (show) => {
   return {
@@ -18,8 +23,3 @@ export const showMunger = (show) => {
     url: show.url,
   }
 }
-
-
-// const hasImage = (show) => {
-//   return show.img !== null ? show.img : "null";
-// }
