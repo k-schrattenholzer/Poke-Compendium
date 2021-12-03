@@ -38,13 +38,11 @@ export default function Compendium() {
       <main>
           <header> hey hi </header>
           <Controls 
-          // handleSubmit={handleSubmit}
           genres={genres}
-          setGenres={setGenres}
           selectedGenre={selectedGenre}
           genreChange={setSelectedGenre}
           sortDir={sortDir}
-          setSortDir={setSortDir}
+          sortChange={setSortDir}
         />
 
           {loading? (

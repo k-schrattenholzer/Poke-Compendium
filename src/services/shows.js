@@ -17,7 +17,7 @@ export const fetchShows = async () => {
 export const fetchGenres = async () => {
 
   const response = await fetch(`https://api.tvmaze.com/shows`);
-
+  
   const data = await response.json();
 
   const genres = genreList(data);
