@@ -2,7 +2,7 @@
   border-radius: 20%;
   padding: 15px 25px;
   margin: 10px 10px;
-  height: 420px;
+  height: fit-content;
   width: 400px;
   border: 1px solid white;
   display: flex;
@@ -13,7 +13,7 @@
 
 .Show >* {
   word-wrap: break-word;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-overflow: clip;
 
 }
