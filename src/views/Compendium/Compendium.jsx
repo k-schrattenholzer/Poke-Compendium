@@ -4,7 +4,7 @@ import Controls from '../../components/Controls/Controls';
 import ShowList from '../../components/ShowList/ShowList';
 
 import './Compendium.css';
-import { getGenreShows } from '../../utils/utils.js';
+import { findByGenre } from '../../utils/utils.js';
 
 export default function Compendium() {
   //initialize state
@@ -14,10 +14,13 @@ export default function Compendium() {
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [sortDir, setSortDir] = useState('Asc');
 
-  // console.log('FUNCTION', getGenreShows(shows, selectedGenre));
-  // console.log('SHOWS',shows);
+  // console.log('GENRES', genres);
   // console.log('selectedGenre',selectedGenre);
-  console.log(genres);
+  const fakeGenre = 'Drama'
+  console.log('FUNCTION', findByGenre(shows, selectedGenre));
+
+
+  
   //need useEffects here
   useEffect(() => {
     const getShows = async () => {
@@ -35,6 +38,24 @@ export default function Compendium() {
     }
     getGenres();
   }, [])
+
+  useEffect(() => {
+    async function getFilteredShows() {
+      if(!setSelectedGenre) return;
+
+        setLoading(true);
+      if(selectedGenre === 'All') {
+        const showList = await fetchShows();
+        setShows(showList);
+        setLoading(false);
+      } else {
+        const filteredList = findByGenre(shows, selectedGenre);
+        setShows(filteredList);
+      }
+      setLoading(false);
+      }
+      getFilteredShows();
+    }, [selectedGenre]);
 
   //handleClick
   return (

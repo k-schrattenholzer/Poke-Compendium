@@ -31,29 +31,36 @@ export function genreList(showArr) {
 
   const uniqueArr = removeDupes(combinedArr);
 
-  uniqueArr.unshift('All');
+  const genreList = uniqueArr.sort();
+  genreList.unshift('All');
 
-  return uniqueArr;
+
+  return genreList;
 }
 
 export function getGenres(show) {
   return show.genres;
 }
 
-export function getGenreShows(showsArr, selectedGenre) {
-  showsArr.forEach((show) => {
-    // console.log('---show---', show)
+export function findByGenre(showsArr, genre) {
+  console.log('SHOWS',showsArr);
+  console.log('GENRE',genre);
+
+  let showsByGenre = [];
+
+  showsArr.map((show) => {
     const showGenres=show.genres;
     // console.log('__SHOW GENRES___', show.genres)
-    // console.log('SELECTED GENRE___', selectedGenre)
-    const showInList = showGenres.includes(selectedGenre);
-    // console.log(showInList);
-    if (showInList || selectedGenre === 'All') {
-      return show;
-    } else {
-      return null;
+    // console.log('SELECTED GENRE___', genre)
+    const genreIncluded = showGenres.includes(genre);
+    
+    if (genreIncluded || genre === 'All') {
+      showsByGenre.push(show);
+    } else {return null;
     }
-  });
+  })
+  console.log(showsByGenre);
+  return showsByGenre;
 }
 
 export function showMunger(show) {

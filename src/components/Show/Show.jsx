@@ -3,7 +3,7 @@ import './Show.css';
 
 export default function Show({ show }) {
 
-const { id, name, lang, premiere, image, summary, url } = show;
+const { id, name, lang, premiere, image, summary, url, genres } = show;
 
   return (
     <div className='Show' key={id}>
@@ -13,10 +13,17 @@ const { id, name, lang, premiere, image, summary, url } = show;
       <div>
         <h4>{name}</h4>
         <ul>
-          <li key={id*5} ><b>language</b> {lang}</li>
-          <li key={id*6}><b>premiere</b>: {premiere}</li>
+          <li>
+            <b>language</b> {lang}</li>
+          <li>
+            <b>premiere</b>: {premiere}</li>
+          <li>
+            <b>genre</b>
+            {genres.map((genre)=><p>{genre}</p>)}
+          </li>
+          <li>{summary}</li>
         </ul>
-        <p>{summary}</p>
+        
       </div>
     
     </div>
