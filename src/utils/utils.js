@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 function flattenArr(arr) {
   let flatArr = arr.reduce((acc, curVal) => {
     return acc.concat(curVal);
@@ -43,21 +44,15 @@ export function getGenres(show) {
 }
 
 export function findByGenre(showsArr, genre) {
-  console.log('SHOWS',showsArr);
-  console.log('GENRE',genre);
-
   let showsByGenre = [];
 
   showsArr.map((show) => {
     const showGenres=show.genres;
-    // console.log('__SHOW GENRES___', show.genres)
-    // console.log('SELECTED GENRE___', genre)
     const genreIncluded = showGenres.includes(genre);
     
     if (genreIncluded || genre === 'All') {
       showsByGenre.push(show);
-    } else {return null;
-    }
+      } else {return null;}
   })
   console.log(showsByGenre);
   return showsByGenre;

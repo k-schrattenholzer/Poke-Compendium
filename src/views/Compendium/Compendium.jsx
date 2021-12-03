@@ -14,9 +14,7 @@ export default function Compendium() {
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [sortDir, setSortDir] = useState('Asc');
 
-  // console.log('GENRES', genres);
-  // console.log('selectedGenre',selectedGenre);
-  const fakeGenre = 'Drama'
+
   console.log('FUNCTION', findByGenre(shows, selectedGenre));
 
 
@@ -49,7 +47,8 @@ export default function Compendium() {
         setShows(showList);
         setLoading(false);
       } else {
-        const filteredList = findByGenre(shows, selectedGenre);
+        const showList = await fetchShows();
+        const filteredList = findByGenre(showList, selectedGenre);
         setShows(filteredList);
       }
       setLoading(false);
