@@ -49,7 +49,7 @@ export const showMunger = (show) => {
     lang: show.language,
     premiere: show.premiered,
     image: show.image.medium,
-    summary: show.summary,
+    summary: removeTags(show.summary),
     url: show.url,
   }
 }

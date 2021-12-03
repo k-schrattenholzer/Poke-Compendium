@@ -7,11 +7,8 @@ export default function ShowList({ shows }) {
   return (
     <div aria-label="showList" className="showList-Container">
       {shows.map(
-        (show) => <Show show={ show } />
-
-
-)}
-      
+        (show) => <Show show={ show } /> 
+      )}      
     </div>
   );
 }

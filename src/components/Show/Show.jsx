@@ -7,14 +7,10 @@ export default function Show({ show }) {
 const { id, name, lang, premiere, image, summary, url } = show;
 
 
-const hasImage = image !== null
-
-const summaryString = removeTags(summary);
-
   return (
-    <article className='Show' key={id}>
+    <div className='Show' key={id}>
       <a href={url}>
-        { hasImage && <img src={image} alt={id}/>}
+        <img src={image} alt={id}/>
       </a>
       <div>
         <h4>{name}</h4>
@@ -22,9 +18,9 @@ const summaryString = removeTags(summary);
           <li key={id*5} ><b>language</b> {lang}</li>
           <li key={id*6}><b>premiere</b>: {premiere}</li>
         </ul>
-        <p>{summaryString}</p>
+        <p>{summary}</p>
       </div>
     
-    </article>
+    </div>
   )
 }
