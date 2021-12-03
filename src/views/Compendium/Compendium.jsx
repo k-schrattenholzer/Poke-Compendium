@@ -4,6 +4,7 @@ import Controls from '../../components/Controls/Controls';
 import ShowList from '../../components/ShowList/ShowList';
 
 import './Compendium.css';
+import { getGenreShows } from '../../utils/utils.js';
 
 export default function Compendium() {
   //initialize state
@@ -13,7 +14,10 @@ export default function Compendium() {
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [sortDir, setSortDir] = useState('Asc');
 
-
+  // console.log('FUNCTION', getGenreShows(shows, selectedGenre));
+  // console.log('SHOWS',shows);
+  // console.log('selectedGenre',selectedGenre);
+  console.log(genres);
   //need useEffects here
   useEffect(() => {
     const getShows = async () => {

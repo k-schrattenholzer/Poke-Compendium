@@ -1,48 +1,62 @@
-export const ShowsWithImg = (showsArr) => {
+function flattenArr(arr) {
+  let flatArr = arr.reduce((acc, curVal) => {
+    return acc.concat(curVal);
+  }, []);
 
-  const filteredArr = showsArr.filter(show => show.image !== null);
-
-  return filteredArr
-
+  return flatArr;
 }
 
-export const removeTags = (string) => {
+function removeDupes(arr) {
+  const noDupes = [...new Set(arr)];
+
+  return noDupes;
+}
+
+function removeTags(string) {
   let str = string.toString();
 
-  return str.replace( /(<([^>]+)>)/ig, '');
+  return str.replace(/(<([^>]+)>)/gi, "");
 }
 
-export const genreList = (showArr) => {
+export function ShowsWithImg(showsArr) {
+  const filteredArr = showsArr.filter((show) => show.image !== null);
 
+  return filteredArr;
+}
+
+export function genreList(showArr) {
   const arrayOfGenreArrays = showArr.map((show) => getGenres(show));
 
   const combinedArr = flattenArr(arrayOfGenreArrays);
 
   const uniqueArr = removeDupes(combinedArr);
 
+  uniqueArr.unshift('All');
+
   return uniqueArr;
-
-}
-export const getGenres = (show) => {
-  return show.genres
-  }
-
-export const flattenArr = (arr) => {
-
-  let flatArr = arr.reduce((acc, curVal) => {
-    return acc.concat(curVal)
-  }, []);
-
-  return flatArr;
 }
 
-export const removeDupes = (arr) => {
-  const noDupes = [...new Set(arr)];
-
-  return noDupes;
+export function getGenres(show) {
+  return show.genres;
 }
 
-export const showMunger = (show) => {
+export function getGenreShows(showsArr, selectedGenre) {
+  showsArr.forEach((show) => {
+    // console.log('---show---', show)
+    const showGenres=show.genres;
+    // console.log('__SHOW GENRES___', show.genres)
+    // console.log('SELECTED GENRE___', selectedGenre)
+    const showInList = showGenres.includes(selectedGenre);
+    // console.log(showInList);
+    if (showInList || selectedGenre === 'All') {
+      return show;
+    } else {
+      return null;
+    }
+  });
+}
+
+export function showMunger(show) {
   return {
     id: show.id,
     name: show.name,
@@ -51,5 +65,6 @@ export const showMunger = (show) => {
     image: show.image.medium,
     summary: removeTags(show.summary),
     url: show.url,
-  }
+    genres: show.genres
+  };
 }

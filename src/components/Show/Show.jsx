@@ -1,11 +1,9 @@
 
-import { removeTags } from '../../utils/utils.js';
 import './Show.css';
 
 export default function Show({ show }) {
-//destructure props needed from show
-const { id, name, lang, premiere, image, summary, url } = show;
 
+const { id, name, lang, premiere, image, summary, url } = show;
 
   return (
     <div className='Show' key={id}>
