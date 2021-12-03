@@ -15,14 +15,15 @@ const summaryString = removeTags(summary);
     <article className='Show' key={id}>
       <a href={url}>
         { hasImage && <img src={image} alt={id}/>}
-        
       </a>
-      <h4>{name}</h4>
-      <ul>
-        <li key={id*5} ><b>language</b> {lang}</li>
-        <li key={id*6}>premiere: {premiere}</li>
-      </ul>
-      <div>{summaryString}</div>
+      <div>
+        <h4>{name}</h4>
+        <ul>
+          <li key={id*5} ><b>language</b> {lang}</li>
+          <li key={id*6}><b>premiere</b>: {premiere}</li>
+        </ul>
+        <p>{summaryString}</p>
+      </div>
     
     </article>
   )
