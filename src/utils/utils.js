@@ -12,6 +12,36 @@ export const removeTags = (string) => {
   return str.replace( /(<([^>]+)>)/ig, '');
 }
 
+export const genreList = (showArr) => {
+
+  const arrayOfGenreArrays = showArr.map((show) => getGenres(show));
+
+  const combinedArr = flattenArr(arrayOfGenreArrays);
+
+  const uniqueArr = removeDupes(combinedArr);
+
+  return uniqueArr;
+
+}
+export const getGenres = (show) => {
+  return show.genres
+  }
+
+export const flattenArr = (arr) => {
+
+  let flatArr = arr.reduce((acc, curVal) => {
+    return acc.concat(curVal)
+  }, []);
+
+  return flatArr;
+}
+
+export const removeDupes = (arr) => {
+  const noDupes = [...new Set(arr)];
+
+  return noDupes;
+}
+
 export const showMunger = (show) => {
   return {
     id: show.id,

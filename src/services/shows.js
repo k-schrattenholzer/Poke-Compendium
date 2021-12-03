@@ -1,9 +1,8 @@
-import { showMunger, ShowsWithImg } from "../utils/utils.js";
+import { genreList, showMunger, ShowsWithImg } from "../utils/utils.js";
 
 
 export const fetchShows = async () => {
-  //when search is using b/c, no problem
-  //when search using any other letter, image is not available
+
   const response = await fetch(`https://api.tvmaze.com/shows`);
 
   const data = await response.json();
@@ -14,3 +13,15 @@ export const fetchShows = async () => {
 
   return showList;
 };
+
+export const fetchGenres = async () => {
+
+  const response = await fetch(`https://api.tvmaze.com/shows`);
+
+  const data = await response.json();
+
+  const genres = genreList(data);
+
+  return genres;
+
+}
