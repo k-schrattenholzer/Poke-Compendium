@@ -1,18 +1,25 @@
 export function ShowsWithImg(showsArr) {
 
-  const filteredArr = showsArr.filter(show => show.img !== null);
+  const filteredArr = showsArr.filter(show => show.image !== null);
+
   return filteredArr
 
 }
 
+
 export const showMunger = (show) => {
   return {
-    id: show.show.id,
-    name: show.show.name,
-    lang: show.show.language,
-    premiere: show.show.premiered,
-    image: show.show.image.medium,
-    summary: show.show.summary,
-    url: show.show.url,
+    id: show.id,
+    name: show.name,
+    lang: show.language,
+    premiere: show.premiered,
+    image: show.image.medium,
+    summary: show.summary,
+    url: show.url,
   }
 }
+
+
+// const hasImage = (show) => {
+//   return show.img !== null ? show.img : "null";
+// }

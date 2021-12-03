@@ -4,8 +4,6 @@ import "./ShowList.css";
 
 export default function ShowList({ shows }) {
 
-  console.log(shows)
-
   return (
     <ul aria-label="showList" className="showList-Container">
       {shows.map(( show ) => {          
