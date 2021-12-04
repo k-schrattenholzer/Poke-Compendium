@@ -14,10 +14,12 @@ function removeDupes(arr) {
 }
 
 function removeTags(string) {
-  console.log(string);
-  let str = string.toString();
-
-  return str.replace(/(<([^>]+)>)/gi, "");
+  if (string === null ) {
+    return false;
+  } else{
+    let str = string.toString();
+    return str.replace(/(<([^>]+)>)/gi, "");
+  }
 }
 
 
@@ -62,7 +64,7 @@ export function findByGenre(showsArr, genre) {
 }
 
 export function showMunger(show) {
-  console.log(show);
+  // console.log(show);
   if (show.image === null ) {
     return false;
   } else return {
@@ -70,7 +72,7 @@ export function showMunger(show) {
     name: show.name,
     lang: show.language,
     premiere: show.premiered,
-    image: (show.image.medium),
+    image: show.image.medium,
     summary: removeTags(show.summary),
     url: show.url,
     genres: show.genres

@@ -9,10 +9,10 @@ export const fetchShows = async () => {
 
   const filteredList = ShowsWithImg(data);
 
-  console.log('FILTERED LIST ON LOAD', filteredList)
+  // console.log('FILTERED LIST ON LOAD', filteredList)
 
   const showList = filteredList.map((show) => showMunger(show));
-   console.log(showList);
+  //  console.log(showList);
   return showList;
 };
 
@@ -29,7 +29,7 @@ export const fetchSearchedShow = async (query) => {
 
   // console.log('filtered list', filteredList);
 
-  const showList = filteredList.map((show) => showMunger(show));
+  const showList = filteredList.map((show) => showMunger(show.show));
 
   return showList;
 };

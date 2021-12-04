@@ -14,7 +14,7 @@ export default function Compendium() {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('All');
 
-  console.log(shows);
+  // console.log(shows);
 
 
   useEffect(() => {
