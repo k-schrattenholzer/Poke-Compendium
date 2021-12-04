@@ -2,6 +2,7 @@
 import './Show.css';
 
 export default function Show({ show }) {
+  // console.log(show);
 
 const { id, name, lang, premiere, image, summary, url, genres } = show;
 
@@ -19,7 +20,7 @@ const { id, name, lang, premiere, image, summary, url, genres } = show;
             <b>premiere</b>: {premiere}</li>
           <li>
             <b>genre</b>
-            {genres.map((genre)=><p>{genre}</p>)}
+            {genres.map((genre)=><p key={genre}>{genre}</p>)}
           </li>
           <li>{summary}</li>
         </ul>

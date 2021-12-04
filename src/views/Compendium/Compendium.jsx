@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchGenres, fetchShows } from '../../services/shows.js';
+import { fetchGenres, fetchShows, fetchSearchedShow } from '../../services/shows.js';
 import Controls from '../../components/Controls/Controls';
 import ShowList from '../../components/ShowList/ShowList';
 
@@ -7,19 +7,16 @@ import './Compendium.css';
 import { findByGenre } from '../../utils/utils.js';
 
 export default function Compendium() {
-  //initialize state
+
   const [loading, setLoading] = useState(true);
   const [shows, setShows] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('All');
-  const [sortDir, setSortDir] = useState('Asc');
+
+  console.log(shows);
 
 
-  console.log('FUNCTION', findByGenre(shows, selectedGenre));
-
-
-  
-  //need useEffects here
   useEffect(() => {
     const getShows = async () => {
       const showList = await fetchShows();
@@ -56,7 +53,17 @@ export default function Compendium() {
       getFilteredShows();
     }, [selectedGenre]);
 
-  //handleClick
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      const searchResults = await fetchSearchedShow(searchTerm);
+      setShows(searchResults);
+      setLoading(false);
+      setSearchTerm('');
+      setSelectedGenre('All');
+      }
+
   return (
     <div className='Compendium-Container'>
       <main>
@@ -65,8 +72,9 @@ export default function Compendium() {
           genres={genres}
           selectedGenre={selectedGenre}
           genreChange={setSelectedGenre}
-          sortDir={sortDir}
-          sortChange={setSortDir}
+          searchTerm = {searchTerm}
+          handleSearch = {handleSubmit}
+          handleSearchChange = {setSearchTerm}
         />
 
           {loading? (
