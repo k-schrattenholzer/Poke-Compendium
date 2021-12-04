@@ -2,7 +2,7 @@
 import './Show.css';
 
 export default function Show({ show }) {
-  console.log(show);
+  // console.log(show);
 
 const { id, name, lang, premiere, image, summary, url, genres } = show;
 

@@ -1,0 +1,16 @@
+select {
+  height: 2em;
+}
+.Controls-Container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.FilterForm-Container {
+  display:flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+

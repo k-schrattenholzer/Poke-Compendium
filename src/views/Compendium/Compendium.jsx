@@ -44,8 +44,7 @@ export default function Compendium() {
         setShows(showList);
         setLoading(false);
       } else {
-        const showList = await fetchShows();
-        const filteredList = findByGenre(showList, selectedGenre);
+        const filteredList = findByGenre(shows, selectedGenre);
         setShows(filteredList);
       }
       setLoading(false);
@@ -67,7 +66,7 @@ export default function Compendium() {
   return (
     <div className='Compendium-Container'>
       <main>
-          <header> hey hi </header>
+          <header> so many tv-shows! </header>
           <Controls 
           genres={genres}
           selectedGenre={selectedGenre}
