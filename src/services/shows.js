@@ -10,6 +10,8 @@ export const fetchShows = async () => {
     .filter(show => show.image)
     .filter(show => show.genres)
     .map((showObj) => showMunger(showObj));
+  
+  console.log(showList);
 
   return showList;
 };

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders compendium 1`] = `
+<p>
+  its a compendium!
+</p>
+`;

@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import Show from './Show.jsx';
 
-it('should render one show component', () => {
+it.only('should render one show component', () => {
   render (
     <Show
       show={{

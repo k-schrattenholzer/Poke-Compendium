@@ -66,7 +66,7 @@ export default function Compendium() {
   return (
     <div className='Compendium-Container'>
       <main>
-          <header> so many tv-shows! </header>
+
           <Controls 
           genres={genres}
           selectedGenre={selectedGenre}
