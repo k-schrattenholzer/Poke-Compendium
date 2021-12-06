@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { fetchGenres, fetchShows, fetchSearchedShow } from '../../services/shows.js';
 import Controls from '../../components/Controls/Controls';
