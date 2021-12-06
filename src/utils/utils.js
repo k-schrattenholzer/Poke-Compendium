@@ -64,10 +64,6 @@ export function findByGenre(showsArr, genre) {
 
 export function showMunger(show) {
 
-  // console.log(show);
-  // if (show.image === null || show.genres === null) {
-  //   return false;
-  // } else
     return {
       id: show.id,
       name: show.name,
