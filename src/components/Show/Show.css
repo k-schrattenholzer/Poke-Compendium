@@ -1,0 +1,25 @@
+.Show {
+  border-radius: 20%;
+  padding: 15px 25px;
+  margin: 10px 10px;
+  height: fit-content;
+  width: 400px;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  font-size: 14px;
+}
+
+.Show >* {
+  word-wrap: break-word;
+  /* overflow: hidden; */
+  text-overflow: clip;
+
+}
+
+.Show >a >img {
+  height: 150px;
+  border-radius: 20%;
+  padding: 1em;
+}
